@@ -1,7 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/core/services/api.service';
+import { AuthService } from 'src/core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,6 @@ import { ApiService } from 'src/core/services/api.service';
   animations: [
     trigger('slideInOut', [
       state('in', style({
-        padding: '.75rem 1.25rem',
-        margin: '0 0 1rem 0'
       })),
       state('out', style({
         opacity: '0',
@@ -25,10 +25,12 @@ import { ApiService } from 'src/core/services/api.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = new FormGroup({});
-  invalidLogin: boolean = false;
+  invalidLogin: 'out' | 'in' = 'out';
 
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(){
@@ -49,13 +51,16 @@ export class LoginComponent implements OnInit {
     }
 
     this.loginForm.disable();
-    this.invalidLogin = false;
+    this.invalidLogin = 'out';
     this.apiService.login(this.loginForm.getRawValue()).subscribe({
       next: (response: any) => {
-        this.invalidLogin = false;
+        this.invalidLogin = 'out';
+        this.authService.storeToken(response);
+        this.router.navigate(['/dashboard']);
+        
       },
       error: (err: any) => {
-        this.invalidLogin = true;
+        this.invalidLogin = 'in';
         this.loginForm.enable();
 
       }

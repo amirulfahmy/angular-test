@@ -17,8 +17,8 @@
                                 <div class="form-text text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">Password is required</div>
                             </div>
                             <div class="col-12" [@slideInOut]="invalidLogin">
-                                <div class="alert alert-danger px-3 py-1 form-text" role="alert">
-                                Invalid credentials
+                                <div class="alert alert-danger px-3 py-1 form-text m-0" role="alert">
+                                    Invalid credentials
                                 </div>
                             </div>
                             <div class="col-12">

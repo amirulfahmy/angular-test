@@ -19,7 +19,7 @@ export class AuthGuard implements CanLoad {
       return true;
     }
     else {
-      return this.router.createUrlTree(['/unauthorized']);
+      return this.router.navigate(['/login']);
     }
   }
   

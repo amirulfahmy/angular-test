@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_endpoint: 'http://test-demo.aemenersol.com/api/'
+  api_endpoint: 'http://test-demo.aemenersol.com/api/',
+  access_token_key: 'auth'
 };
 
 /*
