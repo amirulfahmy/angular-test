@@ -1,0 +1,12 @@
+.spinner-border{
+    font-size: 10px
+}
+
+.custom-width{
+    @media screen and (min-width:768px) {
+        width:75%;
+    }
+    @media screen and (min-width:1024px) {
+        width:50%;
+    }
+}

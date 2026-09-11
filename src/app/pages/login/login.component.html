@@ -1,0 +1,39 @@
+<div class="container-lg h-100 align-content-center">
+    <div class="d-flex justify-content-center">
+        <div class="custom-width">
+            <div class="card">
+                <div class="card-header text-center">
+                    Sign in to your dashboard
+                </div>
+                <div class="card-body">
+                    <div class="mt-4">
+                        <div class="row gy-3" [formGroup]="loginForm">
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Username" formControlName="username" >
+                                <div class="form-text text-danger" *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.hasError('required')">Username is required</div>
+                            </div>
+                            <div class="col-12">
+                                <input type="password" class="form-control" placeholder="Password" formControlName="password" (keyup.enter)="signIn()">
+                                <div class="form-text text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">Password is required</div>
+                            </div>
+                            <div class="col-12" [@slideInOut]="invalidLogin">
+                                <div class="alert alert-danger px-3 py-1 form-text" role="alert">
+                                Invalid credentials
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-primary px-4 py-2" (click)="signIn()">
+                                    <div class="d-flex column-gap-3 align-items-center">
+                                        <div>SIGN IN</div>
+                                        <div class="spinner-border" *ngIf="loginForm.disabled"></div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
