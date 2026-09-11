@@ -1,1 +1,48 @@
-<p>dashboard works!</p>
+<div class="mt-4">
+    <h3>Overview</h3>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Card Title
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Card Title
+                </div>
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="mt-3">User List</h3>
+    <div class="row">
+        <div class="col-12">
+            <table class="w-100 table table-bordered table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="w-10 text-center">#</th>
+                        <th class="w-20 text-center">First Name</th>
+                        <th class="w-20 text-center">Last Name</th>
+                        <th class="w-50">User Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of userList; let i = index">
+                        <td class="text-center">{{ i + 1}}</td>
+                        <td class="text-center">{{ data?.firstName ?? '-'}}</td>
+                        <td class="text-center">{{ data?.lastName ?? '-'}}</td>
+                        <td>{{ data?.username ?? '-'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
