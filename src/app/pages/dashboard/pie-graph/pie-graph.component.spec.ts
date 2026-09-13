@@ -1,5 +1,6 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgChartsModule } from 'ng2-charts';
 
 import { PieGraphComponent } from './pie-graph.component';
 
@@ -9,6 +10,7 @@ describe('PieGraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ NgChartsModule ],
       declarations: [ PieGraphComponent ]
     })
     .compileComponents();

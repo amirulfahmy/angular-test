@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ChartGraphComponent } from './chart-graph/chart-graph.component';
 import { DashboardComponent } from './dashboard.component';
 import { PieGraphComponent } from './pie-graph/pie-graph.component';
+import { NgChartsModule } from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -18,8 +19,8 @@ import { PieGraphComponent } from './pie-graph/pie-graph.component';
             component: DashboardComponent
         }
     ]),
-    CommonModule
-  ],
-  bootstrap: [DashboardComponent]
+    CommonModule,
+    NgChartsModule
+  ]
 })
 export class DashboardModule { }

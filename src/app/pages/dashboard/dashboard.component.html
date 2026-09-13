@@ -4,21 +4,20 @@
         <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Card Title
+                    Donut Chart
                 </div>
                 <div class="card-body">
-                    <app-pie-graph></app-pie-graph>
+                    <app-pie-graph [data]="pieChartData"></app-pie-graph>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-6">
             <div class="card">
                 <div class="card-header">
-                    Card Title
+                    Bar Chart
                 </div>
                 <div class="card-body">
-                    <app-chart-graph></app-chart-graph>
-                    
+                    <app-chart-graph [data]="barChartData"></app-chart-graph>
                 </div>
             </div>
         </div>

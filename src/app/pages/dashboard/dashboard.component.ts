@@ -9,6 +9,10 @@ import { ApiService } from 'src/core/services/api.service';
 export class DashboardComponent implements OnInit {
 
   userList: any[] = [];
+
+  pieChartData = [];
+  barChartData = [];
+
   constructor(
     private apiService: ApiService
   ) { }
@@ -21,12 +25,18 @@ export class DashboardComponent implements OnInit {
     this.apiService.getDashboardData().subscribe({
       next: (res: any) => {
         if (res?.success === false){
-
+            
         }
         else {
+          this.pieChartData = res?.chartDonut ?? [];
+          this.barChartData = res?.chartBar?? [];
           this.userList = res?.tableUsers ?? [];
         }
-        console.log(res);
+      },
+      error: (error: any) => {
+        this.pieChartData = [];
+        this.barChartData = [];
+        this.userList = [];
       }
     })
   }
