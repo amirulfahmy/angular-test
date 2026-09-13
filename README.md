@@ -1,27 +1,28 @@
 # AngularTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## Prerequisites
 
-## Development server
+- [Node.js](https://nodejs.org/) (LTS compatible with Angular 14, e.g. v16 or v18)
+- [Angular CLI](https://angular.io/cli) v14 — install globally if you don't have it:
+  ```bash
+  npm install -g @angular/cli@14
+  ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting started
 
-## Code scaffolding
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the dev server:
+   ```bash
+   npm start
+   ```
+   This runs `ng serve -o`, which builds the app and opens it at [http://localhost:4200](http://localhost:4200). The app reloads automatically on file changes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Other useful commands
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `npm run build` — build the project into `dist/`
+- `npm run "build production"` — production build
+- `npm run watch` — build in watch mode (development configuration)
+- `npm test` — run unit tests via Karma
