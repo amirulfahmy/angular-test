@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { filter, Subject, takeUntil } from 'rxjs';
 import { AuthService } from 'src/core/services/auth.service';
+import { ConfirmationModalComponent } from '../components/confirmation-modal/confirmation-modal.component';
 
 @Component({
   selector: 'app-layout',
@@ -16,7 +18,8 @@ export class LayoutComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private ngbModal: NgbModal
   ) { 
      this.router.events
     .pipe(
@@ -42,6 +45,21 @@ export class LayoutComponent implements OnInit {
   }
 
   logOut(){
-    this.authService.logOut();
+    const dialog = this.ngbModal.open(ConfirmationModalComponent, {
+      size: 'md',
+      backdrop: 'static',
+      centered: true
+    });
+
+    dialog.componentInstance.title = "Confirmation";
+    dialog.componentInstance.message = "Are you sure you want to sign out?";
+
+    dialog.result.then(res => {
+      if (res === true){
+        this.authService.logOut();
+
+      }
+    })
+
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedComponentModule } from '../components/shared-components.module';
 import { LayoutComponent } from './layout.component';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { LayoutComponent } from './layout.component';
                 },
             ]
         }
-    ])
+    ]),
+    SharedComponentModule
   ],
   bootstrap: [LayoutComponent]
 })
